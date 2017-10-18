@@ -1,0 +1,50 @@
+{
+    "name": "creativestyle/exception-report-aws-logger",
+    "description": "Pushes exception report files to CloudWatch Logs",
+    "keywords": [
+        "aws",
+        "magento",
+        "logging",
+        "cloudwatch"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Filip Sobalski",
+            "email": "filip.sobalski@creativestyle.pl",
+            "homepage": "http://creativestyle.pl/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "CS\\ExceptionReportAwsLogger\\": "src/"
+        }
+    },
+    "require": {
+        "aws/aws-sdk-php": "^3.36",
+        "symfony/console": "^3.3"
+    },
+    "require-dev": {
+        "macfja/phar-builder": "^0.2.6"
+    },
+    "scripts": {
+        "build": "php -d phar.readonly=0 vendor/bin/phar-builder package composer.json"
+    },
+    "extra": {
+        "phar-builder": {
+            "compression": "GZip",
+            "name": "exclog.phar",
+            "output-dir": "build",
+            "entry-point": "./bin/cli.php",
+            "include": ["bin"],
+            "include-dev": false,
+            "skip-shebang": false,
+            "events": {
+                "command.package.end": [
+                    "chmod +x build/exclog.phar",
+                    "mv build/exclog.phar build/exclog"
+                ]
+            }
+        }
+    }
+}
