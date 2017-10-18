@@ -327,6 +327,14 @@ class CloudWatchPusher
             $this->groupName,
             $this->streamName
         ));
+
+        if (isset($response['rejectedLogEventsInfo']['tooOldLogEventEndIndex'])) {
+            $this->debugLogger->warning(sprintf('Stream "%s:%s" rejected %d events because they are too old',
+                $this->groupName,
+                $this->streamName,
+                $response['rejectedLogEventsInfo']['tooOldLogEventEndIndex']
+            ));
+        }
     }
 
     /**
