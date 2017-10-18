@@ -2,7 +2,6 @@
 
 namespace CS\ExceptionReportAwsLogger;
 
-use Aws\CloudWatchLogs\Exception\CloudWatchLogsException;
 use Psr\Log\LogLevel;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -132,7 +131,10 @@ class PushDirectoryCommand extends Command
                 $item['mtime']
             );
 
-            $logger->notice(sprintf('Pushed file "%s"', $item['filename']));
+            $logger->notice(sprintf('Pushed file "%s", modified at %s',
+                $item['filename'],
+                date_create('@' . $item['mtime'])->format('d.m.Y H:i:s')
+            ));
         }
 
         /* Save the state only after successful push */

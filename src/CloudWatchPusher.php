@@ -225,7 +225,7 @@ class CloudWatchPusher
     {
         return [
             'message' => $entry['content'],
-            'timestamp' => (float)$entry['timestamp'],
+            'timestamp' => $entry['timestamp'] * 1000,
         ];
     }
 
