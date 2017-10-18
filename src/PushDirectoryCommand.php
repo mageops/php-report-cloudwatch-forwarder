@@ -28,6 +28,7 @@ class PushDirectoryCommand extends Command
             ->addOption('aws-version', 'av', InputOption::VALUE_REQUIRED, 'Version of AWS API', 'latest')
             ->addOption('state-dir', 't', InputOption::VALUE_REQUIRED, 'Path to directory where last states are kept', $this->getDefaultStateDirectoryPath())
             ->addOption('chunk-size', 'c', InputOption::VALUE_REQUIRED, 'Max buffer size before flush', 200000)
+            ->addOption('formatter', 'f', InputOption::VALUE_REQUIRED, 'Name of the formatter [default,serialized_array]', 'default')
         ;
     }
 
@@ -90,16 +91,21 @@ class PushDirectoryCommand extends Command
     }
 
     /**
-     * @param array $item
-     * @return string
+     * @param $name
+     * @return FormatterInterface
      */
-    protected function formatItem($item)
+    private function createFormatter($name)
     {
-        return sprintf("Filename: %s\nDirectory: %s\n--------------------------\n%s",
-            $item['basename'],
-            $item['dirname'],
-            $item['content']
-        );
+        switch ($name) {
+            case 'default':
+                return new DefaultFormatter();
+
+            case 'serialized_array':
+                return new SerializedArrayFormatter();
+
+            default:
+                throw new \RuntimeException(sprintf('Unknown formatter %s', $name));
+        }
     }
 
     /**
@@ -108,6 +114,7 @@ class PushDirectoryCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $logger = $this->createLogger($output);
+        $formatter = $this->createFormatter($input->getOption('formatter'));
 
         $monitor = new DirectoryMonitor(
             $input->getArgument('directory'),
@@ -127,7 +134,7 @@ class PushDirectoryCommand extends Command
 
         foreach ($monitor->scan() as $item) {
             $pusher->push(
-                $this->formatItem($item),
+                $formatter->format($item['filename'], $item['content'], $item['mtime']),
                 $item['mtime']
             );
 

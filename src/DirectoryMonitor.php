@@ -110,8 +110,6 @@ class DirectoryMonitor
 
             $items[] = [
                 'filename' => $filename,
-                'dirname' => dirname($filename),
-                'basename' => basename($filename),
                 'mtime' => $mtime,
                 'content' => file_get_contents($filename),
             ];
