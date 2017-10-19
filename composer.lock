@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "718b0cc6917099a4b49d5f5ddc574ad6",
+    "content-hash": "396ca3b73ef8fa13b37ffa66ae2127a8",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.28",
+            "version": "3.36.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "65ca98c303ea1489b2719b6d892d800dd604d4b2"
+                "reference": "210958295921f0004d0fdc38bc9aefe33ef2a3de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/65ca98c303ea1489b2719b6d892d800dd604d4b2",
-                "reference": "65ca98c303ea1489b2719b6d892d800dd604d4b2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/210958295921f0004d0fdc38bc9aefe33ef2a3de",
+                "reference": "210958295921f0004d0fdc38bc9aefe33ef2a3de",
                 "shasum": ""
             },
             "require": {
@@ -84,51 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-10-17T19:51:40+00:00"
-        },
-        {
-            "name": "creativestyle/utilities",
-            "version": "v1.5.8",
-            "source": {
-                "type": "git",
-                "url": "ssh://git@gitlab.creativestyle.pl/php-libraries/utilities.git",
-                "reference": "ffdd4c197d803d6f83b83c168811dacd3053a36c"
-            },
-            "require": {
-                "ircmaxell/random-lib": "^1.2",
-                "php": ">=5.5"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "5.5.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "CS\\Utilities\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "CS\\Utilities\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Filip Sobalski",
-                    "email": "filip.sobalski@creativestyle.pl",
-                    "homepage": "http://creativestyle.pl"
-                }
-            ],
-            "description": "Static method utilities collection with high reusability",
-            "keywords": [
-                "array",
-                "string",
-                "utilities"
-            ],
-            "time": "2017-09-28T10:56:49+00:00"
+            "time": "2017-10-18T18:46:11+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -310,107 +266,6 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
-        },
-        {
-            "name": "ircmaxell/random-lib",
-            "version": "v1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ircmaxell/RandomLib.git",
-                "reference": "e9e0204f40e49fa4419946c677eccd3fa25b8cf4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/RandomLib/zipball/e9e0204f40e49fa4419946c677eccd3fa25b8cf4",
-                "reference": "e9e0204f40e49fa4419946c677eccd3fa25b8cf4",
-                "shasum": ""
-            },
-            "require": {
-                "ircmaxell/security-lib": "^1.1",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^1.11",
-                "mikey179/vfsstream": "^1.6",
-                "phpunit/phpunit": "^4.8|^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "RandomLib": "lib"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anthony Ferrara",
-                    "email": "ircmaxell@ircmaxell.com",
-                    "homepage": "http://blog.ircmaxell.com"
-                }
-            ],
-            "description": "A Library For Generating Secure Random Numbers",
-            "homepage": "https://github.com/ircmaxell/RandomLib",
-            "keywords": [
-                "cryptography",
-                "random",
-                "random-numbers",
-                "random-strings"
-            ],
-            "time": "2016-09-07T15:52:06+00:00"
-        },
-        {
-            "name": "ircmaxell/security-lib",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ircmaxell/SecurityLib.git",
-                "reference": "f3db6de12c20c9bcd1aa3db4353a1bbe0e44e1b5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/SecurityLib/zipball/f3db6de12c20c9bcd1aa3db4353a1bbe0e44e1b5",
-                "reference": "f3db6de12c20c9bcd1aa3db4353a1bbe0e44e1b5",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "mikey179/vfsstream": "1.1.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "SecurityLib": "lib"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anthony Ferrara",
-                    "email": "ircmaxell@ircmaxell.com",
-                    "homepage": "http://blog.ircmaxell.com"
-                }
-            ],
-            "description": "A Base Security Library",
-            "homepage": "https://github.com/ircmaxell/SecurityLib",
-            "time": "2015-03-20T14:31:23+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
