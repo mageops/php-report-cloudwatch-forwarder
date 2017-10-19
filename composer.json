@@ -33,7 +33,7 @@
     "extra": {
         "phar-builder": {
             "compression": "GZip",
-            "name": "exclog.phar",
+            "name": "aws-exclog.phar",
             "output-dir": "build",
             "entry-point": "./bin/cli.php",
             "include": ["bin"],
@@ -43,8 +43,8 @@
                 "command.package.start" : "git rev-parse --short HEAD > bin/version",
                 "command.package.end": [
                     "rm bin/version",
-                    "chmod +x build/exclog.phar",
-                    "mv build/exclog.phar build/exclog"
+                    "chmod +x build/aws-exclog.phar",
+                    "mv build/aws-exclog.phar build/aws-exclog"
                 ]
             }
         }

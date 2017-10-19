@@ -58,9 +58,9 @@ class PushDirectoryCommand extends Command
     protected function getDefaultStateDirectoryPath()
     {
         $stateDirs = [
-            '/var/spool/exclog-state',
-            $_SERVER['HOME'] . '/.exclog-state',
-            sys_get_temp_dir() . '/exclog-state',
+            '/var/spool/aws-exclog-state',
+            $_SERVER['HOME'] . '/.aws-exclog-state',
+            sys_get_temp_dir() . '/aws-exclog-state',
         ];
 
         foreach ($stateDirs as $dir) {
