@@ -6,7 +6,7 @@ require __DIR__ . '/../vendor/autoload.php';
 if (file_exists(__DIR__ . '/version')) {
     define('VERSION', 'r' . file_get_contents(__DIR__ . '/version'));
 } else {
-    define('VERSION', 'r[local]');
+    define('VERSION', 'rUNKNOWN');
 }
 
 use CS\ExceptionReportAwsLogger\App;
