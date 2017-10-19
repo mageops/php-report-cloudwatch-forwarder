@@ -8,7 +8,7 @@ class App extends BaseApp
 {
     public function __construct()
     {
-        parent::__construct('Exception AWS Logger', 'rev' . VERSION);
+        parent::__construct('Exception AWS Logger', VERSION);
 
         $this->add(new PushDirectoryCommand());
         $this->setDefaultCommand('list');
