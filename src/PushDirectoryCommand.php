@@ -116,6 +116,14 @@ class PushDirectoryCommand extends Command
         $logger = $this->createLogger($output);
         $formatter = $this->createFormatter($input->getOption('formatter'));
 
+        if (!file_exists($input->getArgument('directory'))) {
+            $logger->warning(sprintf('Target directory "%s" does not exist, exiting',
+                $input->getArgument('directory')
+            ));
+
+            exit(10);
+        }
+
         $monitor = new DirectoryMonitor(
             $input->getArgument('directory'),
             $input->getOption('state-dir'),
