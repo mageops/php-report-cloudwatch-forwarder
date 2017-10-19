@@ -40,7 +40,9 @@
             "include-dev": false,
             "skip-shebang": false,
             "events": {
+                "command.package.start" : "git rev-parse --short HEAD > bin/version",
                 "command.package.end": [
+                    "rm bin/version",
                     "chmod +x build/exclog.phar",
                     "mv build/exclog.phar build/exclog"
                 ]
