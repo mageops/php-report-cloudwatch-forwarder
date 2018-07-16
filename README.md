@@ -21,3 +21,9 @@ composer build
 ```
 
 You will find the final executable in `/build/exclog`.
+
+Upload to our s3
+
+```
+AWS_PROFILE="creativeshop_rpms"  aws s3 cp --acl public-read build/aws-exclog s3://cs-creativeshop-rpms/aws-exclog-876df02
+```
