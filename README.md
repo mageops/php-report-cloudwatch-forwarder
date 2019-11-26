@@ -1,13 +1,13 @@
-Exception Report AWS Logger
-===========================
+Exception Report AWS Forwarder
+===============================
 
-Logs exception reports stored as individual files to AWS CloudWatch Logs.
+Forwards exception reports stored as individual files to AWS CloudWatch Logs.
 
-This something that `awslog` client cannot do.
+This something that AWS CloudWatch Agent cannot do.
 
 You should run it in cron every couple of minutes.
 
-### Example usage for magento
+### Example usage for Magento
 
 ```
 bin/cli.php push:directory -v --formatter=serialized_array --region=eu-central-1 --group=magento-exc-report /var/www/magento-base/current/var/report/  
@@ -20,10 +20,8 @@ composer install --dev
 composer build
 ```
 
-You will find the final executable in `/build/exclog`.
+### Install
 
-Upload to our s3
+#### CentOS RPM Package
 
-```
-AWS_PROFILE="creativeshop_rpms"  aws s3 cp --acl public-read build/aws-exclog s3://cs-creativeshop-rpms/aws-exclog-876df02
-```
+Install the package from [MageOps RPM Repository](https://mageops.github.io/rpm/).

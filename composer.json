@@ -1,6 +1,6 @@
 {
-    "name": "creativestyle/exception-report-aws-logger",
-    "description": "Pushes exception report files to CloudWatch Logs",
+    "name": "creativestyle/mageops-exception-report-cloudwatch-forwarder",
+    "description": "Forwards exception report files to CloudWatch Logs",
     "keywords": [
         "aws",
         "magento",
@@ -21,6 +21,7 @@
         }
     },
     "require": {
+        "php": "^7.1",
         "aws/aws-sdk-php": "^3.36",
         "symfony/console": "^3.3"
     },
@@ -33,7 +34,7 @@
     "extra": {
         "phar-builder": {
             "compression": "GZip",
-            "name": "aws-exclog.phar",
+            "name": "aws-excfwd.phar",
             "output-dir": "build",
             "entry-point": "./bin/cli.php",
             "include": ["bin"],
@@ -43,8 +44,8 @@
                 "command.package.start" : "git rev-parse --short HEAD > bin/version",
                 "command.package.end": [
                     "rm bin/version",
-                    "chmod +x build/aws-exclog.phar",
-                    "mv build/aws-exclog.phar build/aws-exclog"
+                    "chmod +x build/aws-excfwd.phar",
+                    "mv build/aws-excfwd.phar build/aws-excfwd"
                 ]
             }
         }

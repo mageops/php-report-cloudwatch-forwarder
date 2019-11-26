@@ -1,0 +1,25 @@
+language: php
+php:
+  - '7.1'
+  - '7.2'
+  - '7.3'
+  - nightly
+
+matrix:
+  allow_failures:
+    - php: nightly
+
+before_script:
+    - travis_retry composer self-update
+    - travis_retry composer install --no-interaction --prefer-source --dev
+
+script:
+    - composer build
+
+deploy:
+  - provider: releases
+    token: $GITHUB_OAUTH_TOKEN
+    file: build/aws-excfwd
+    skip_cleanup: true
+    on:
+      tags: true
