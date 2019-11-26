@@ -22,6 +22,14 @@ composer build
 
 ### Install
 
+#### Fetch from GitHub releases
+
+Find the latest release and install the PHAR directly.
+
+```shell
+curl -Ls https://github.com/mageops/php-report-cloudwatch-forwarder/releases/aws-excfwd -O /usr/local/bin/aws-excfwd && chmod +x /usr/local/bin/aws-excfwd
+```
+
 #### CentOS RPM Package
 
 Install the package from [MageOps RPM Repository](https://mageops.github.io/rpm/).

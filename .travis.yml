@@ -9,7 +9,7 @@ before_script:
     - travis_retry composer install --no-interaction --prefer-source --dev
 
 script:
-    - set -x
+    - set -e
     - composer build
     - cd build; shashum > shashum; cd ..
 
