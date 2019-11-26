@@ -1,5 +1,5 @@
 {
-    "name": "creativestyle/mageops-exception-report-cloudwatch-forwarder",
+    "name": "creativestyle/mageops-report-cloudwatch-forwarder",
     "description": "Forwards exception report files to CloudWatch Logs",
     "keywords": [
         "aws",
