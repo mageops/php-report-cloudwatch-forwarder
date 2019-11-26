@@ -11,14 +11,11 @@ before_script:
 script:
     - set -e
     - composer build
-    - cd build; shashum > shashum; cd ..
 
 deploy:
   - provider: releases
     token: $GITHUB_OAUTH_TOKEN
-    file:
-      - build/aws-excfwd
-      - build/shasum
+    file: build/aws-excfwd
     skip_cleanup: true
     on:
       tags: true
