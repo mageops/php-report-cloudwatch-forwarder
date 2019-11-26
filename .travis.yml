@@ -3,23 +3,23 @@ php:
   - '7.1'
   - '7.2'
   - '7.3'
-  - nightly
-
-matrix:
-  allow_failures:
-    - php: nightly
 
 before_script:
     - travis_retry composer self-update
     - travis_retry composer install --no-interaction --prefer-source --dev
 
 script:
+    - set -x
     - composer build
+    - cd build; shashum > shashum; cd ..
 
 deploy:
   - provider: releases
     token: $GITHUB_OAUTH_TOKEN
-    file: build/aws-excfwd
+    file:
+      - build/aws-excfwd
+      - build/shasum
     skip_cleanup: true
     on:
       tags: true
+      php: '7.1'
