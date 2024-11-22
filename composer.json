@@ -21,12 +21,13 @@
         }
     },
     "require": {
-        "php": "^7.1",
+        "php": "^7 || ^8",
         "aws/aws-sdk-php": "^3.36",
-        "symfony/console": "^3.3"
+        "symfony/console": "^4",
+        "psr/log": "^3"
     },
     "require-dev": {
-        "macfja/phar-builder": "^0.2.6"
+        "macfja/phar-builder": "^0.2.8"
     },
     "scripts": {
         "build": "php -d phar.readonly=0 vendor/bin/phar-builder package composer.json"
