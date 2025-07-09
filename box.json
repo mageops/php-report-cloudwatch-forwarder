@@ -1,0 +1,7 @@
+{
+    "main": "bin/cli.php",
+    "output": "build/report-forwarder.phar",
+    "directories": [
+        "src"
+    ]
+} 
