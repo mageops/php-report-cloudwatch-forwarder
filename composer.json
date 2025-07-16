@@ -23,14 +23,8 @@
     "require": {
         "php": "^8.1",
         "aws/aws-sdk-php": "^3.0",
-        "symfony/console": "^6.4",
+        "symfony/console": "^7.0",
         "psr/log": "^3.0"
-    },
-    "require-dev": {
-        "humbug/box": "^4.4"
-    },
-    "scripts": {
-        "build": "box compile"
     },
     "extra": {
         "phar-builder": {
@@ -38,11 +32,13 @@
             "name": "aws-excfwd.phar",
             "output-dir": "build",
             "entry-point": "./bin/cli.php",
-            "include": ["bin"],
+            "include": [
+                "bin"
+            ],
             "include-dev": false,
             "skip-shebang": false,
             "events": {
-                "command.package.start" : "git rev-parse --short HEAD > bin/version",
+                "command.package.start": "git rev-parse --short HEAD > bin/version",
                 "command.package.end": [
                     "rm bin/version",
                     "chmod +x build/aws-excfwd.phar",
