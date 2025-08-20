@@ -23,32 +23,21 @@
     "require": {
         "php": "^7 || ^8",
         "aws/aws-sdk-php": "^3.36",
-        "symfony/console": "^4",
-        "psr/log": "^3"
+        "symfony/console": "^6.4",
+        "psr/log": "^1"
     },
     "require-dev": {
-        "macfja/phar-builder": "^0.2.8"
+        "clue/phar-composer": "^1.4"
     },
+    "bin": [
+        "bin/cli.php"
+    ],
     "scripts": {
-        "build": "php -d phar.readonly=0 vendor/bin/phar-builder package composer.json"
-    },
-    "extra": {
-        "phar-builder": {
-            "compression": "GZip",
-            "name": "aws-excfwd.phar",
-            "output-dir": "build",
-            "entry-point": "./bin/cli.php",
-            "include": ["bin"],
-            "include-dev": false,
-            "skip-shebang": false,
-            "events": {
-                "command.package.start" : "git rev-parse --short HEAD > bin/version",
-                "command.package.end": [
-                    "rm bin/version",
-                    "chmod +x build/aws-excfwd.phar",
-                    "mv build/aws-excfwd.phar build/aws-excfwd"
-                ]
-            }
-        }
+        "build": [
+            "git rev-parse --short HEAD > bin/version",
+            "php -d phar.readonly=0 vendor/bin/phar-composer build . build/aws-excfwd",
+            "rm bin/version",
+            "chmod +x build/aws-excfwd"
+        ]
     }
 }
