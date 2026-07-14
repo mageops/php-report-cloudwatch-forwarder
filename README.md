@@ -29,7 +29,7 @@ bin/cli.php push:directory -v --formatter=serialized_array --region=eu-central-1
 ### Build
 
 ```
-composer install --dev
+composer install
 composer build
 ```
 

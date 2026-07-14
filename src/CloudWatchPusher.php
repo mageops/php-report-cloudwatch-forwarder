@@ -2,7 +2,7 @@
 
 namespace CS\ExceptionReportAwsLogger;
 
-use Aws\CloudWatch\CloudWatchClient;
+use Aws\CloudWatchLogs\CloudWatchLogsClient;
 use Aws\CloudWatchLogs\Exception\CloudWatchLogsException;
 use Aws\Exception\AwsException;
 use Aws\Sdk;
@@ -26,7 +26,7 @@ class CloudWatchPusher
     private $aws;
 
     /**
-     * @var CloudWatchClient
+     * @var CloudWatchLogsClient
      */
     private $client;
 

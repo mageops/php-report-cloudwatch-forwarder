@@ -17,7 +17,7 @@ class SerializedArrayFormatter extends DefaultFormatter
      */
     public function formatMessage($message)
     {
-        $data = @unserialize($message);
+        $data = @unserialize($message, ['allowed_classes' => false]);
 
         if (false === $data) {
             return $message;
