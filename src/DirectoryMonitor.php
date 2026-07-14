@@ -45,7 +45,7 @@ class DirectoryMonitor
     public function __construct(
         $path,
         $stateDir,
-        $glob = '*',
+        $glob,
         LoggerInterface $debugLogger
     ) {
         $this->path = realpath($path);

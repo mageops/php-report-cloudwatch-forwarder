@@ -86,9 +86,9 @@ class CloudWatchPusher
     public function __construct(
         $groupName,
         $streamName,
-        $region = null,
-        $version = 'latest',
-        $chunkSize = 100000,
+        $region,
+        $version,
+        $chunkSize,
         LoggerInterface $debugLogger
     ) {
         $awsConfig = [

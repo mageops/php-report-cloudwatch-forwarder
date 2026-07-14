@@ -111,7 +111,7 @@ class PushDirectoryCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $logger = $this->createLogger($output);
         $formatter = $this->createFormatter($input->getOption('formatter'));
@@ -121,7 +121,7 @@ class PushDirectoryCommand extends Command
                 $input->getArgument('directory')
             ));
 
-            exit(10);
+            return 10;
         }
 
         $monitor = new DirectoryMonitor(
@@ -156,5 +156,7 @@ class PushDirectoryCommand extends Command
         $monitor->saveState();
 
         $pusher->flush();
+
+        return Command::SUCCESS;
     }
 }
