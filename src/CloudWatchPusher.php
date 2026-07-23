@@ -2,7 +2,7 @@
 
 namespace CS\ExceptionReportAwsLogger;
 
-use Aws\CloudWatch\CloudWatchClient;
+use Aws\CloudWatchLogs\CloudWatchLogsClient;
 use Aws\CloudWatchLogs\Exception\CloudWatchLogsException;
 use Aws\Exception\AwsException;
 use Aws\Sdk;
@@ -26,7 +26,7 @@ class CloudWatchPusher
     private $aws;
 
     /**
-     * @var CloudWatchClient
+     * @var CloudWatchLogsClient
      */
     private $client;
 
@@ -86,9 +86,9 @@ class CloudWatchPusher
     public function __construct(
         $groupName,
         $streamName,
-        $region = null,
-        $version = 'latest',
-        $chunkSize = 100000,
+        $region,
+        $version,
+        $chunkSize,
         LoggerInterface $debugLogger
     ) {
         $awsConfig = [

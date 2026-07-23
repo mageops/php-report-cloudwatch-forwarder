@@ -21,23 +21,35 @@
         }
     },
     "require": {
-        "php": "^7 || ^8",
+        "php": ">=8.1",
         "aws/aws-sdk-php": "^3.36",
         "symfony/console": "^6.4",
-        "psr/log": "^1"
+        "psr/log": "^3"
     },
     "require-dev": {
         "clue/phar-composer": "^1.4"
+    },
+    "config": {
+        "platform": {
+            "php": "8.1.0"
+        }
+    },
+    "extra": {
+        "aws/aws-sdk-php": [
+            "CloudWatchLogs"
+        ]
     },
     "bin": [
         "bin/cli.php"
     ],
     "scripts": {
+        "pre-autoload-dump": "Aws\\Script\\Composer\\Composer::removeUnusedServices",
         "build": [
+            "rm -f build/aws-excfwd*",
             "git rev-parse --short HEAD > bin/version",
-            "php -d phar.readonly=0 vendor/bin/phar-composer build . build/aws-excfwd",
+            "php -d phar.readonly=0 vendor/bin/phar-composer build . build/aws-excfwd-php81",
             "rm bin/version",
-            "chmod +x build/aws-excfwd"
+            "chmod +x build/aws-excfwd-php81"
         ]
     }
 }

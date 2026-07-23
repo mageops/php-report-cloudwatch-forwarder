@@ -17,7 +17,7 @@ docker exec $CONTAINER composer build --working-dir=/app
 
 # Copy the build artifact back
 mkdir -p build
-docker cp $CONTAINER:/app/build/aws-excfwd ./build/
+docker cp $CONTAINER:/app/build/aws-excfwd-php81 ./build/
 
 # Clean up
 docker rm -f $CONTAINER
